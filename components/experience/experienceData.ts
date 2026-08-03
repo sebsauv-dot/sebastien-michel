@@ -1,10 +1,10 @@
 export const experiences = [
   {
-    period: "2023 - Aujourd'hui",
+    period: "2021 - Aujourd'hui",
     company: "NCPI",
     position: "Technicien de Maintenance Caisse",
     description:
-      "GMaintenance Caisse hardware, software, Installation et paramétrage Caisse sur site et à distance, Formation clients et Revendeurs Logiciel NcRetail magasin, restaurant, mode..., Installation / Paramétrage Balance connectée, Installation / Paramétrage TPE,   Assistance technique.",
+      "Maintenance Caisse hardware, software, Installation et paramétrage Caisse sur site et à distance, Formation clients et Revendeurs Logiciel NcRetail magasin, restaurant, mode..., Installation / Paramétrage Balance connectée, Installation / Paramétrage TPE,   Assistance technique.",
     technologies: [
       "Windows",
       "TPV",

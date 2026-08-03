@@ -1,28 +1,24 @@
 @import "tailwindcss";
 
 :root {
-  /* Couleurs principales */
   --background: #020617;
   --surface: #0f172a;
-  --card: #1e293b;
 
-  /* Couleurs d'accent */
   --primary: #2563eb;
+  --primary-light: #3b82f6;
   --accent: #06b6d4;
 
-  /* Texte */
   --text: #f8fafc;
   --text-secondary: #94a3b8;
 
-  /* Bordures */
   --border: rgba(255, 255, 255, 0.08);
+  --glass: rgba(255, 255, 255, 0.05);
 
-  /* Effets */
-  --shadow: rgba(0, 0, 0, 0.35);
-  --glass: rgba(255, 255, 255, 0.04);
+  --radius: 24px;
+}
 
-  /* Rayons */
-  --radius: 18px;
+* {
+  box-sizing: border-box;
 }
 
 html {
@@ -34,4 +30,22 @@ body {
   color: var(--text);
   font-family: var(--font-geist-sans), sans-serif;
   overflow-x: hidden;
+}
+
+::selection {
+  background: var(--primary);
+  color: white;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
 }
