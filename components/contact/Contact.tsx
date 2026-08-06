@@ -159,7 +159,7 @@ export default function Contact() {
               </p>
 
               <p className="mt-2 text-slate-300">
-                CDI • CDD • Mission • Freelance
+                Je suis actuellement disponible pour de nouvelles opportunités
               </p>
 
               <p className="mt-4 text-sm leading-7 text-slate-400">
