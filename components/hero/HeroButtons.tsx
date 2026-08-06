@@ -17,7 +17,7 @@ export default function HeroButtons() {
       className="mt-12 flex flex-wrap gap-4"
     >
       <Button
-        href="/cv/CV-Sebastien-MICHEL.pdf"
+        href="/cv/Sebastien_MICHEL_CV.pdf"
         variant="primary"
         className="group"
       >

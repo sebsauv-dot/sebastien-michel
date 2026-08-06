@@ -5,7 +5,7 @@ import { Download } from "lucide-react";
 export default function DownloadCVButton() {
   return (
     <a
-      href="/cv/CV-Sebastien-MICHEL.pdf"
+      href="/cv/Sebastien_MICHEL_CV.pdf"
       download
       className="
         inline-flex

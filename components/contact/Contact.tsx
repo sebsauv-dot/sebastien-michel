@@ -171,7 +171,7 @@ export default function Contact() {
               </div>
 
               <a
-                href="/cv/CV-Sebastien-Michel.pdf"
+                href="/cv/Sebastien_MICHEL_CV.pdf"
                 download
                 className="
                   mt-10
