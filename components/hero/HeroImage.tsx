@@ -38,7 +38,6 @@ const badges = [
   },
 ];
 
-const SIZE = 560;
 const PHOTO_SIZE = 400;
 const RADIUS = 220;
 

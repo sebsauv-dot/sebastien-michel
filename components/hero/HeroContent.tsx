@@ -100,36 +100,38 @@ export default function HeroContent() {
 
       {/* Présentation */}
 
-      <motion.p
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.45 }}
-        className="
-          mx-auto
-          mt-8
-          max-w-2xl
-          text-base
-          leading-8
-          text-slate-400
-          sm:text-lg
-          lg:mx-0
-          lg:leading-9
-        "
-      >
-        Depuis plus de{" "}
-        <span className="font-semibold text-white">
-          30 ans
-        </span>
-        , j'accompagne les entreprises dans la maintenance informatique,
-        l'administration des systèmes Microsoft Windows, les infrastructures
-        réseaux et les solutions professionnelles d'encaissement (TPV).
+      {/* Présentation */}
 
-        <br />
-        <br />
+<motion.p
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  transition={{ delay: 0.45 }}
+  className="
+    mx-auto
+    mt-8
+    max-w-2xl
+    text-base
+    leading-8
+    text-slate-400
+    sm:text-lg
+    lg:mx-0
+    lg:leading-9
+  "
+>
+  Depuis plus de{" "}
+  <span className="font-semibold text-white">
+    30 ans
+  </span>
+  , j&apos;accompagne les entreprises dans la maintenance informatique,
+  l&apos;administration des systèmes Microsoft Windows, les infrastructures
+  réseaux et les solutions professionnelles d&apos;encaissement (TPV).
 
-        Mon objectif est d'apporter des solutions fiables, un support
-        réactif et un accompagnement de proximité.
-      </motion.p>
+  <br />
+  <br />
+
+  Mon objectif est d&apos;apporter des solutions fiables, un support
+  réactif et un accompagnement de proximité.
+</motion.p>
 
       {/* Statistiques */}
 
