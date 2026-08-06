@@ -8,7 +8,7 @@ export default function Title({
   subtitle,
 }: Props) {
   return (
-    <div className="text-center">
+    <>
       <h2
         className="
           mt-6
@@ -17,31 +17,19 @@ export default function Title({
           via-white
           to-blue-300
           bg-clip-text
-          text-4xl
+          text-5xl
           font-black
           leading-tight
           text-transparent
-          sm:text-5xl
           lg:text-6xl
         "
       >
         {title}
       </h2>
 
-      <p
-        className="
-          mx-auto
-          mt-8
-          max-w-3xl
-          text-lg
-          leading-8
-          text-slate-300
-          sm:text-xl
-          sm:leading-9
-        "
-      >
+      <p className="mt-8 max-w-3xl text-xl leading-9 text-slate-300">
         {subtitle}
       </p>
-    </div>
+    </>
   );
 }

@@ -14,34 +14,11 @@ import {
 export default function Footer() {
   const year = new Date().getFullYear();
 
-  const iconClass =
-    `
-      flex
-      h-14
-      w-14
-      items-center
-      justify-center
-      rounded-full
-      border
-      border-slate-700
-      text-cyan-400
-      transition-all
-      duration-300
-      hover:scale-110
-      hover:border-cyan-400
-      hover:bg-cyan-500/10
-      hover:shadow-[0_0_25px_rgba(34,211,238,.35)]
-    `;
-
   return (
     <footer className="relative overflow-hidden border-t border-slate-800 bg-slate-950">
-
       {/* Halo */}
-
       <div className="pointer-events-none absolute inset-0">
-
         <div className="absolute left-1/2 top-0 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-cyan-500/10 blur-[180px]" />
-
       </div>
 
       <div className="relative mx-auto max-w-7xl px-6 py-20">
@@ -49,7 +26,6 @@ export default function Footer() {
         <div className="grid gap-14 lg:grid-cols-3">
 
           {/* Présentation */}
-
           <div>
 
             <div className="flex items-center gap-5">
@@ -63,7 +39,6 @@ export default function Footer() {
               />
 
               <div>
-
                 <h3 className="text-3xl font-black text-white">
                   Sébastien MICHEL
                 </h3>
@@ -71,18 +46,15 @@ export default function Footer() {
                 <p className="text-cyan-400">
                   Maintenance informatique • Réseaux • Solutions d&apos;Encaissement
                 </p>
-
               </div>
 
             </div>
 
             <p className="mt-8 leading-8 text-slate-400">
-
-              Plus de 30 ans d&apos;expérience dans la maintenance informatique,
-              l&apos;administration des systèmes Microsoft, les infrastructures
-              réseaux, Microsoft 365 et les solutions professionnelles
-              d&apos;encaissement.
-
+              Plus de 30 ans d&apos;expérience dans la maintenance
+              informatique, l&apos;administration des systèmes Microsoft,
+              les réseaux d&apos;entreprise, Microsoft Office et les
+              solutions professionnelles d&apos;encaissement.
             </p>
 
             <a
@@ -108,15 +80,12 @@ export default function Footer() {
               "
             >
               <Download size={18} />
-
               Télécharger mon CV
-
             </a>
 
           </div>
 
           {/* Navigation */}
-
           <div>
 
             <h4 className="mb-6 text-xl font-bold text-white">
@@ -160,7 +129,6 @@ export default function Footer() {
           </div>
 
           {/* Contact */}
-
           <div>
 
             <h4 className="mb-6 text-xl font-bold text-white">
@@ -170,73 +138,62 @@ export default function Footer() {
             <div className="space-y-5">
 
               <a
-                href="mailto:seb.sauv@gmail.com?subject=Prise%20de%20contact%20depuis%20mon%20portfolio"
+                href="mailto:seb.sauv@gmail.com"
                 className="flex items-center gap-4 text-slate-300 transition hover:text-cyan-400"
               >
-                <Mail
-                  size={20}
-                  className="text-cyan-400"
-                />
-
-                Me contacter par e-mail
-
+                <Mail size={20} className="text-cyan-400" />
+                Mail
               </a>
 
               <a
                 href="tel:+33681443632"
                 className="flex items-center gap-4 text-slate-300 transition hover:text-cyan-400"
               >
-                <Phone
-                  size={20}
-                  className="text-cyan-400"
-                />
-
+                <Phone size={20} className="text-cyan-400" />
                 06&nbsp;81&nbsp;44&nbsp;36&nbsp;32
-
               </a>
 
               <div className="flex items-center gap-4 text-slate-300">
-
-                <MapPin
-                  size={20}
-                  className="text-cyan-400"
-                />
-
+                <MapPin size={20} className="text-cyan-400" />
                 Bédarieux • Occitanie
-
               </div>
 
-              <p className="pt-4 text-sm text-slate-400">
-                Retrouvez-moi également sur
-              </p>
+              <div className="flex gap-4 pt-4">
 
-              <div className="flex gap-5">
-                                <a
-                  href="https://www.linkedin.com/in/sebastienmichel423b22187/"
+                <a
+                  href="https://www.linkedin.com/in/sebastienmichel423b22187"
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="LinkedIn"
-                  className={iconClass}
+                  className="
+                    rounded-full
+                    border
+                    border-slate-700
+                    p-3
+                    transition-all
+                    duration-300
+                    hover:border-cyan-400
+                    hover:bg-cyan-500/10
+                  "
                 >
-                  <Linkedin size={28} />
+                  <Linkedin className="text-cyan-400" />
                 </a>
 
                 <a
                   href="https://github.com/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="GitHub"
-                  className={iconClass}
+                  className="
+                    rounded-full
+                    border
+                    border-slate-700
+                    p-3
+                    transition-all
+                    duration-300
+                    hover:border-cyan-400
+                    hover:bg-cyan-500/10
+                  "
                 >
-                  <Github size={28} />
-                </a>
-
-                <a
-                  href="mailto:seb.sauv@gmail.com?subject=Prise%20de%20contact%20depuis%20mon%20portfolio"
-                  aria-label="Envoyer un e-mail"
-                  className={iconClass}
-                >
-                  <Mail size={28} />
+                  <Github className="text-cyan-400" />
                 </a>
 
               </div>
@@ -249,32 +206,19 @@ export default function Footer() {
 
         {/* Bas de page */}
 
-        <div
-          className="
-            mt-16
-            border-t
-            border-slate-800
-            pt-8
-            text-center
-          "
-        >
+        <div className="mt-16 border-t border-slate-800 pt-8 text-center text-sm text-slate-500">
 
-          <p className="text-sm text-slate-500">
+          <p>
             © {year} Sébastien MICHEL • Tous droits réservés.
           </p>
 
-          <p className="mt-3 text-sm text-slate-500">
-            Conçu et développé par Sébastien MICHEL
-          </p>
-
-          <p className="mt-2 text-xs text-slate-600">
-            Next.js • React • TypeScript • Tailwind CSS
+          <p className="mt-3">
+            Développé sous Next.js • React • TypeScript • Tailwind CSS
           </p>
 
         </div>
 
       </div>
-
     </footer>
   );
 }
