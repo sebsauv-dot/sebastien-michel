@@ -44,7 +44,7 @@ export default function Footer() {
                 </h3>
 
                 <p className="text-cyan-400">
-                  Maintenance informatique • Réseaux • TPV
+                  Maintenance informatique • Réseaux • Solutions d&apos;Encaissement
                 </p>
               </div>
 
