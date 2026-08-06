@@ -1,20 +1,91 @@
 "use client";
 
+import { motion } from "framer-motion";
+
 export default function HeroBackground() {
   return (
     <div className="absolute inset-0 -z-10 overflow-hidden">
-      <div className="absolute left-1/2 top-1/2 h-[900px] w-[900px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-600/15 blur-[180px]" />
 
-      <div className="absolute top-0 left-0 h-full w-full bg-[radial-gradient(circle_at_top,rgba(37,99,235,0.15),transparent_60%)]" />
+      {/* Halo principal */}
+
+      <motion.div
+        animate={{
+          scale: [1, 1.15, 1],
+          opacity: [0.25, 0.4, 0.25],
+        }}
+        transition={{
+          duration: 12,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="
+          absolute
+          left-1/2
+          top-1/2
+          h-[700px]
+          w-[700px]
+          -translate-x-1/2
+          -translate-y-1/2
+          rounded-full
+          bg-blue-600/15
+          blur-[180px]
+        "
+      />
+
+      {/* Halo secondaire */}
+
+      <motion.div
+        animate={{
+          x: [-30, 30, -30],
+          y: [-20, 20, -20],
+        }}
+        transition={{
+          duration: 18,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="
+          absolute
+          right-0
+          top-20
+          h-96
+          w-96
+          rounded-full
+          bg-cyan-500/10
+          blur-[150px]
+        "
+      />
+
+      {/* Grille */}
 
       <div
-        className="absolute inset-0 opacity-10"
+        className="
+          absolute
+          inset-0
+          opacity-[0.06]
+        "
         style={{
-          backgroundImage:
-            "linear-gradient(rgba(255,255,255,.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.08) 1px, transparent 1px)",
-          backgroundSize: "40px 40px",
+          backgroundImage: `
+            linear-gradient(to right,#ffffff 1px,transparent 1px),
+            linear-gradient(to bottom,#ffffff 1px,transparent 1px)
+          `,
+          backgroundSize: "60px 60px",
         }}
       />
+
+      {/* Dégradé */}
+
+      <div
+        className="
+          absolute
+          inset-0
+          bg-gradient-to-b
+          from-slate-950/20
+          via-slate-950
+          to-slate-950
+        "
+      />
+
     </div>
   );
 }

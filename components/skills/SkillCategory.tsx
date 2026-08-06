@@ -16,18 +16,22 @@ export default function SkillCategory({
   skills,
 }: Props) {
   return (
-    <GlassCard className="p-8">
+    <GlassCard className="p-8 h-full">
 
-      <h3 className="mb-8 text-2xl font-bold">
+      <h3 className="mb-8 text-2xl font-bold text-white">
         {title}
       </h3>
 
-      {skills.map((skill) => (
-        <SkillBar
-          key={skill.name}
-          {...skill}
-        />
-      ))}
+      <div className="space-y-7">
+
+        {skills.map((skill) => (
+          <SkillBar
+            key={skill.name}
+            {...skill}
+          />
+        ))}
+
+      </div>
 
     </GlassCard>
   );

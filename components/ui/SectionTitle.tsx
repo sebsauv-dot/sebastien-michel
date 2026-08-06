@@ -1,31 +1,37 @@
-type Props = {
-  overline: string;
+"use client";
+
+import { motion } from "framer-motion";
+
+interface SectionTitleProps {
   title: string;
-  subtitle?: string;
-};
+  subtitle: string;
+  center?: boolean;
+}
 
 export default function SectionTitle({
-  overline,
   title,
   subtitle,
-}: Props) {
+  center = false,
+}: SectionTitleProps) {
   return (
-    <div className="max-w-3xl">
-
-      <span className="font-semibold uppercase tracking-[0.35em] text-blue-400">
-        {overline}
+    <motion.div
+      initial={{ opacity: 0, y: 25 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
+      className={center ? "mx-auto max-w-3xl text-center" : ""}
+    >
+      <span className="font-semibold uppercase tracking-[0.25em] text-blue-400">
+        Portfolio Professionnel
       </span>
 
-      <h2 className="mt-5 text-5xl font-black leading-tight lg:text-6xl">
+      <h2 className="mt-4 text-4xl font-bold text-white md:text-5xl">
         {title}
       </h2>
 
-      {subtitle && (
-        <p className="mt-8 text-xl leading-9 text-slate-400">
-          {subtitle}
-        </p>
-      )}
-
-    </div>
+      <p className="mt-6 text-lg leading-8 text-slate-400">
+        {subtitle}
+      </p>
+    </motion.div>
   );
 }

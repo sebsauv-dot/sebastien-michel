@@ -1,29 +1,112 @@
-export const skillCategories = [
+import {
+  MonitorCog,
+  Server,
+  Network,
+  Wrench,
+  Database,
+  Users,
+} from "lucide-react";
+
+export const skillsData = [
   {
-    title: "Infrastructure & Systèmes",
+    id: 1,
+    icon: MonitorCog,
+    title: "Maintenance Informatique",
+    description:
+      "Installation, diagnostic, dépannage, maintenance préventive et corrective des postes de travail.",
+
     skills: [
-      { name: "Windows", level: 95 },
-      { name: "Mac OS", level: 90 },
-      { name: "Active Directory", level: 88 },
-      { name: "Réseaux", level: 80 },
+      "Diagnostic matériel",
+      "Réinstallation Windows",
+      "Migration de postes",
+      "Sauvegarde",
+      "Assemblage PC",
+      "Support technique",
     ],
   },
+
   {
+    id: 2,
+    icon: Server,
+    title: "Windows Server",
+    description:
+      "Administration de serveurs Microsoft pour les PME.",
+
+    skills: [
+      "Active Directory",
+      "DNS",
+      "DHCP",
+      "GPO",
+      "Gestion utilisateurs",
+      "Sauvegardes",
+    ],
+  },
+
+  {
+    id: 3,
+    icon: Network,
     title: "Réseaux",
+    description:
+      "Installation et maintenance des infrastructures réseau.",
+
     skills: [
-      { name: "TCP/IP", level: 95 },
-      { name: "Switching", level: 90 },
-      { name: "Wi-Fi", level: 90 },
-      { name: "VPN", level: 82 },
+      "TCP/IP",
+      "Ethernet",
+      "Wi-Fi",
+      "Brassage",
+      "Switch",
+      "Routeur",
     ],
   },
+
   {
-    title: "Support & Maintenance",
+    id: 4,
+    icon: Database,
+    title: "Solutions TPV",
+    description:
+      "Installation et maintenance de solutions d'encaissement.",
+
     skills: [
-      { name: "Support utilisateurs", level: 98 },
-      { name: "Maintenance", level: 98 },
-      { name: "Diagnostic", level: 95 },
-      { name: "Formation", level: 85 },
+      "Installation",
+      "Paramétrage",
+      "Formation",
+      "Maintenance",
+      "TPE",
+      "Balances",
+    ],
+  },
+
+  {
+    id: 5,
+    icon: Wrench,
+    title: "Support Utilisateurs",
+    description:
+      "Assistance sur site et à distance.",
+
+    skills: [
+      "Télémaintenance",
+      "AnyDesk",
+      "TeamViewer",
+      "Support",
+      "Documentation",
+      "Formation",
+    ],
+  },
+
+  {
+    id: 6,
+    icon: Users,
+    title: "Relation Client",
+    description:
+      "Accompagnement, conseil et suivi des entreprises.",
+
+    skills: [
+      "Conseil",
+      "Formation",
+      "Suivi",
+      "Commercial",
+      "Devis",
+      "Achats",
     ],
   },
 ];

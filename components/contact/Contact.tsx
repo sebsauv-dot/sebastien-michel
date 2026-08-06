@@ -1,120 +1,354 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import {
   Mail,
   Phone,
   MapPin,
-  Linkedin,
-  Github,
+  Send,
+  Download,
+  Loader2,
 } from "lucide-react";
 
-import Container from "../ui/Container";
-import SectionTitle from "../ui/SectionTitle";
+import Badge from "../ui/Badge";
+import Title from "../ui/Title";
+import GlassCard from "../ui/GlassCard";
+
+import { sendContactMail } from "@/lib/email";
 
 export default function Contact() {
+  const [form, setForm] = useState({
+    from_name: "",
+    reply_to: "",
+    subject: "",
+    message: "",
+  });
+
+  const [loading, setLoading] = useState(false);
+
+  const [success, setSuccess] = useState(false);
+
+  const [error, setError] = useState("");
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (
+    e: React.FormEvent<HTMLFormElement>
+  ) => {
+    e.preventDefault();
+
+    setSuccess(false);
+    setError("");
+
+    if (
+      !form.from_name ||
+      !form.reply_to ||
+      !form.subject ||
+      !form.message
+    ) {
+      setError("Merci de compléter tous les champs.");
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      await sendContactMail(form);
+
+      setSuccess(true);
+
+      setForm({
+        from_name: "",
+        reply_to: "",
+        subject: "",
+        message: "",
+      });
+    } catch {
+      setError(
+        "Une erreur est survenue lors de l'envoi du message."
+      );
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <section
       id="contact"
-      className="relative overflow-hidden py-32"
+      className="relative overflow-hidden py-28"
     >
-      <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute left-1/2 top-20 h-[600px] w-[600px] -translate-x-1/2 rounded-full bg-blue-500/10 blur-[180px]" />
+      {/* Halo */}
+
+      <div className="pointer-events-none absolute inset-0">
+
+        <div className="absolute left-1/2 top-0 h-[700px] w-[700px] -translate-x-1/2 rounded-full bg-cyan-500/10 blur-[180px]" />
+
+        <div className="absolute -left-40 bottom-0 h-[300px] w-[300px] rounded-full bg-blue-600/10 blur-[120px]" />
+
+        <div className="absolute -right-40 top-20 h-[300px] w-[300px] rounded-full bg-cyan-400/10 blur-[120px]" />
+
       </div>
 
-      <Container>
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
 
-        <SectionTitle
-          overline="Contact"
+        <Badge>Contact</Badge>
+
+        <Title
           title="Échangeons sur votre projet"
-          subtitle="Disponible pour un poste en maintenance informatique, réseaux, support technique ou solutions TPV."
+          subtitle="Disponible pour un poste, une mission ou un accompagnement informatique."
         />
 
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          className="mt-20 grid gap-8 lg:grid-cols-2"
-        >
+        <div className="mt-20 grid gap-10 lg:grid-cols-2">
 
-          <div className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-2xl">
+          {/* Coordonnées */}
 
-            <h3 className="text-3xl font-bold text-white">
-              Restons en contact
-            </h3>
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <GlassCard className="h-full p-10">
 
-            <p className="mt-5 leading-8 text-slate-300">
-              Je suis disponible pour échanger sur une opportunité
-              professionnelle ou un projet informatique.
-            </p>
+              <h3 className="text-3xl font-bold text-white">
+                Restons en contact
+              </h3>
 
-            <div className="mt-10 space-y-6">
+              <p className="mt-6 leading-8 text-slate-300">
+                Vous recherchez un technicien expérimenté,
+                autonome et orienté satisfaction client ?
+                Je serai ravi d&apos;échanger avec vous afin
+                d&apos;étudier vos besoins et de mettre mes
+                compétences à votre service.
+              </p>
 
-              <div className="flex items-center gap-4">
-                <Mail className="text-blue-400" />
-                <span className="text-slate-200">
-                  seb.sauv@gmail.com
-                </span>
+              <div className="mt-10 space-y-8">
+
+                {/* Email */}
+
+                <div className="flex items-start gap-5">
+
+                  <div className="rounded-xl bg-cyan-500/10 p-3">
+                    <Mail className="text-cyan-400" />
+                  </div>
+
+                  <div>
+
+                    <h4 className="font-semibold text-white">
+                      Adresse e-mail
+                    </h4>
+
+                    <a
+                      href="mailto:seb.sauv@gmail.com"
+                      className="mt-1 inline-block text-cyan-400 transition hover:text-cyan-300"
+                    >
+                      Me contacter par e-mail
+                    </a>
+
+                  </div>
+
+                </div>
+
+                <ContactItem
+                  icon={<Phone className="text-cyan-400" />}
+                  title="Téléphone"
+                  value="06 81 44 36 32"
+                />
+
+                <ContactItem
+                  icon={<MapPin className="text-cyan-400" />}
+                  title="Localisation"
+                  value="Bédarieux • Occitanie"
+                />
+
               </div>
-
-              <div className="flex items-center gap-4">
-                <Phone className="text-blue-400" />
-                <span className="text-slate-200">
-                  06.81.44.36.32
-                </span>
-              </div>
-
-              <div className="flex items-center gap-4">
-                <MapPin className="text-blue-400" />
-                <span className="text-slate-200">
-                  Bédarieux (Hérault)
-                </span>
-              </div>
-
-            </div>
-
-          </div>
-
-          <div className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-2xl">
-
-            <h3 className="text-2xl font-bold text-white">
-              Retrouvez-moi
-            </h3>
-
-            <div className="mt-8 space-y-4">
 
               <a
-                href="https://www.linkedin.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-between rounded-2xl border border-white/10 p-5 transition hover:border-blue-500/50 hover:bg-blue-500/10"
+                href="/cv/Sebastien_MICHEL_CV.pdf"
+                download
+                className="
+                  mt-12
+                  inline-flex
+                  items-center
+                  gap-3
+                  rounded-full
+                  border
+                  border-cyan-500/30
+                  bg-cyan-500/10
+                  px-6
+                  py-4
+                  font-semibold
+                  text-cyan-300
+                  transition-all
+                  duration-300
+                  hover:bg-cyan-500
+                  hover:text-white
+                "
               >
-                <div className="flex items-center gap-4">
-                  <Linkedin className="text-blue-400" />
-                  <span>LinkedIn</span>
-                </div>
+                <Download size={18} />
+
+                Télécharger mon CV
+
               </a>
 
-              <a
-                href="https://github.com/sebsauv-dot"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-between rounded-2xl border border-white/10 p-5 transition hover:border-blue-500/50 hover:bg-blue-500/10"
+            </GlassCard>
+
+          </motion.div>
+
+          {/* Formulaire */}
+
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <GlassCard className="p-10">
+
+              <form
+                onSubmit={handleSubmit}
+                className="space-y-6"
               >
-                <div className="flex items-center gap-4">
-                  <Github className="text-blue-400" />
-                  <span>GitHub</span>
-                </div>
-              </a>
+                                <input
+                  type="text"
+                  name="from_name"
+                  value={form.from_name}
+                  onChange={handleChange}
+                  placeholder="Nom"
+                  className="w-full rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-white outline-none transition focus:border-cyan-500"
+                />
 
-            </div>
+                <input
+                  type="email"
+                  name="reply_to"
+                  value={form.reply_to}
+                  onChange={handleChange}
+                  placeholder="Adresse e-mail"
+                  className="w-full rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-white outline-none transition focus:border-cyan-500"
+                />
 
-          </div>
+                <input
+                  type="text"
+                  name="subject"
+                  value={form.subject}
+                  onChange={handleChange}
+                  placeholder="Sujet"
+                  className="w-full rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-white outline-none transition focus:border-cyan-500"
+                />
 
-        </motion.div>
+                <textarea
+                  name="message"
+                  rows={6}
+                  value={form.message}
+                  onChange={handleChange}
+                  placeholder="Votre message..."
+                  className="w-full rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-white outline-none transition focus:border-cyan-500"
+                />
 
-      </Container>
+                {error && (
+                  <div className="rounded-xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-300">
+                    {error}
+                  </div>
+                )}
+
+                {success && (
+                  <div className="rounded-xl border border-green-500/30 bg-green-500/10 px-4 py-3 text-sm text-green-300">
+                    ✅ Votre message a été envoyé avec succès.
+                  </div>
+                )}
+
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="
+                    flex
+                    w-full
+                    items-center
+                    justify-center
+                    gap-3
+                    rounded-full
+                    bg-gradient-to-r
+                    from-blue-600
+                    to-cyan-500
+                    px-8
+                    py-4
+                    font-semibold
+                    shadow-[0_15px_40px_rgba(37,99,235,.35)]
+                    transition-all
+                    duration-300
+                    hover:scale-[1.02]
+                    disabled:cursor-not-allowed
+                    disabled:opacity-70
+                  "
+                >
+                  {loading ? (
+                    <>
+                      <Loader2
+                        size={20}
+                        className="animate-spin"
+                      />
+
+                      Envoi en cours...
+                    </>
+                  ) : (
+                    <>
+                      <Send size={18} />
+
+                      Envoyer le message
+                    </>
+                  )}
+                </button>
+
+              </form>
+
+            </GlassCard>
+
+          </motion.div>
+
+        </div>
+
+      </div>
+
     </section>
+  );
+}
+
+function ContactItem({
+  icon,
+  title,
+  value,
+}: {
+  icon: React.ReactNode;
+  title: string;
+  value: string;
+}) {
+  return (
+    <div className="flex items-start gap-5">
+
+      <div className="rounded-xl bg-cyan-500/10 p-3">
+        {icon}
+      </div>
+
+      <div>
+
+        <h4 className="font-semibold text-white">
+          {title}
+        </h4>
+
+        <p className="mt-1 text-slate-400">
+          {value}
+        </p>
+
+      </div>
+
+    </div>
   );
 }

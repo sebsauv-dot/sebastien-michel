@@ -1,31 +1,26 @@
-export const profile = {
-  firstname: "Sébastien",
-  lastname: "MICHEL",
+import type { Profile } from "@/types/Profile";
 
-  title: "Technicien Informatique",
+export const profile: Profile = {
+  firstName: "Sébastien",
 
-  tagline:
-    "30 années d'expérience au service des entreprises.",
+  lastName: "MICHEL",
 
-  heroDescription:
-    "Spécialisé dans les infrastructures informatiques, les réseaux, les serveurs Windows, les solutions d'encaissement et l'accompagnement des utilisateurs depuis plus de 30 ans.",
+  title: "Expert Infrastructure Informatique",
 
-  email: "seb.sauv@gmail.com",
+  subtitle: "Maintenance • Réseaux • Microsoft 365 • TPV",
 
-  phone: "06 81 44 36 32",
+  description:
+    "J'accompagne les entreprises depuis plus de 30 ans dans la maintenance informatique, l'administration systèmes, les infrastructures réseau, Microsoft 365 et les solutions TPV.",
 
-  city: "Bédarieux (34)",
+  email: "contact@ton-domaine.fr",
 
-  linkedin:
-    "https://www.linkedin.com/in/sebastienmichel423b",
+  phone: "06 00 00 00 00",
 
-  cv: "/cv/CV-Sebastien-Michel.pdf",
+  city: "Occitanie",
 
-  image: "/images/sebastien.png",
+  github: "https://github.com/ton-compte",
 
-  experience: "30+",
+  linkedin: "https://www.linkedin.com/in/sebastienmichel423b22187/",
 
-  interventions: "1000+",
-
-  clients: "500+",
+  yearsExperience: 30,
 };

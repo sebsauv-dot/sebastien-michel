@@ -1,119 +1,90 @@
-export const experiences = [
-  {
-    period: "2021 - Aujourd'hui",
-    company: "NCPI",
-    location: "Saint-Gély-du-Fesc",
-    title: "Technicien Maintenance Informatique & Solutions d'Encaissement",
+import { Experience } from "@/types/Experience";
 
-    description:
-      "Installation, maintenance et paramétrage de solutions d'encaissement pour les professionnels.",
+export const experiences: Experience[] = [
 
-    missions: [
-      "Maintenance hardware et software",
-      "Installation de caisses",
-      "Paramétrage NcRetail",
-      "Formation utilisateurs",
-      "Installation Serveur Windows 2019",
-      "Installation TPE",
-      "Installation balances connectées",
-      "Télémaintenance",
-    ],
+{
+id:1,
 
-    technologies: [
-      "Windows Server 2019",
-      "NcRetail",
-      "TPV",
-      "TPE",
-      "Support",
-    ],
-  },
+period:"1993",
 
-  {
-    period: "2020 - 2019",
+company:"Débuts professionnels",
 
-    company: "BUROTIK 34",
+position:"Technicien Informatique",
 
-    location: "Béziers",
+location:"France",
 
-    title: "Technicien Maintenance Bureautique",
+description:
+"Premières expériences dans la maintenance informatique, les réseaux et le support utilisateurs.",
 
-    description:
-      "Installation et maintenance de solutions d'impression professionnelles.",
+technologies:[
+"Windows",
+"DOS",
+"Novell",
+"Réseaux"
+],
 
-    missions: [
-      "Maintenance Konica Minolta",
-      "Maintenance Triumph Adler",
-      "Télémaintenance",
-      "Installation sur site",
-      "Maintenance préventive",
-      "Maintenance curative",
-    ],
+achievements:[
+"Maintenance",
+"Assemblage PC",
+"Support utilisateurs"
+]
 
-    technologies: [
-      "Konica Minolta",
-      "Triumph Adler",
-      "Support",
-    ],
-  },
+},
 
-  {
-    period: "2018 - 2007",
+{
+id:2,
 
-    company: "BDX Multimédia",
+period:"2000",
 
-    location: "Bédarieux",
+company:"Évolution professionnelle",
 
-    title: "Technicien Maintenance Informatique",
+position:"Technicien confirmé",
 
-    description:
-      "Administration systèmes, maintenance informatique, réseaux, gestion commerciale et support utilisateurs.",
+location:"France",
 
-    missions: [
-      "Administration Windows Server",
-      "Gestion parc informatique",
-      "Support utilisateurs",
-      "Assemblage PC",
-      "Télémaintenance",
-      "Gestion EBP",
-      "Achats fournisseurs",
-      "Création de sites Internet",
-    ],
+description:
+"Administration de postes de travail et assistance informatique en entreprise.",
 
-    technologies: [
-      "Windows Server",
-      "Active Directory",
-      "EBP",
-      "Office",
-      "TCP/IP",
-      "TeamViewer",
-      "AnyDesk",
-    ],
-  },
+technologies:[
+"Windows",
+"Active Directory",
+"Office"
+],
 
-  {
-    period: "2008 - 2005",
+achievements:[
+"Déploiement",
+"Support",
+"Administration"
+]
 
-    company: "Collège Les Arbourys",
+},
 
-    location: "Magalas",
+{
+id:3,
 
-    title: "Responsable Informatique",
+period:"2016",
 
-    description:
-      "Gestion complète de l'infrastructure informatique de l'établissement.",
+company:"Responsable Boutique",
 
-    missions: [
-      "Administration serveurs",
-      "Gestion utilisateurs",
-      "Sauvegardes",
-      "Maintenance",
-      "Formation utilisateurs",
-    ],
+position:"Chargé de clientèle",
 
-    technologies: [
-      "Windows Server",
-      "Active Directory",
-      "Sauvegardes",
-    ],
-  },
+location:"Occitanie",
+
+description:
+"Gestion commerciale, maintenance informatique et solutions TPV.",
+
+technologies:[
+"TPV",
+"Microsoft 365",
+"Windows"
+],
+
+achievements:[
+"Relation client",
+"Support",
+"Gestion fournisseurs"
+]
+
+}
+
 ];

@@ -1,75 +1,130 @@
 "use client";
 
-import Link from "next/link";
-import { Download } from "lucide-react";
-import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { Menu, X } from "lucide-react";
 
-const links = [
-  { label: "Accueil", href: "#accueil" },
-  { label: "Parcours", href: "#parcours" },
-  { label: "Compétences", href: "#competences" },
-  { label: "Expertise", href: "#realisations" },
-  { label: "Contact", href: "#contact" },
-];
+import Logo from "./Logo";
+import NavLink from "./NavLink";
+import DownloadCVButton from "./DownloadCVButton";
+
+import { navigation } from "@/lib/navigation";
 
 export default function Navbar() {
-  return (
-    <motion.header
-      initial={{ y: -70, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{
-        duration: 0.7,
-        ease: "easeOut",
-      }}
-      className="fixed inset-x-0 top-0 z-50"
-    >
-      <div className="mx-auto mt-5 flex h-16 w-[95%] max-w-7xl items-center justify-between rounded-full border border-white/10 bg-slate-950/60 px-8 shadow-[0_20px_60px_rgba(0,0,0,.25)] backdrop-blur-2xl">
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
-        {/* Logo */}
-        <Link
-          href="/"
-          className="flex items-center gap-3"
-        >
-          <div className="flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-br from-blue-600 to-cyan-500 font-bold text-white shadow-lg">
-            SM
-          </div>
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 40);
+    };
+
+    handleScroll();
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const closeMobileMenu = () => {
+    setMobileOpen(false);
+  };
+
+  return (
+    <>
+      <header
+        className={`fixed left-0 top-0 z-50 w-full transition-all duration-500 ${
+          scrolled
+            ? "border-b border-slate-800/60 bg-slate-950/80 supports-[backdrop-filter]:bg-slate-950/70 backdrop-blur-xl shadow-[0_10px_40px_rgba(0,0,0,.35)]"
+            : "bg-transparent"
+        }`}
+      >
+        <div className="mx-auto flex h-24 max-w-7xl items-center justify-between px-6">
+
+          <Logo />
+
+          {/* Navigation Desktop */}
+
+          <nav className="hidden items-center gap-8 lg:flex">
+            {navigation.map((item) => (
+              <NavLink
+                key={item.href}
+                href={item.href}
+                label={item.label}
+              />
+            ))}
+          </nav>
+
+          {/* Bouton CV */}
 
           <div className="hidden lg:block">
-            <p className="text-sm font-semibold text-white">
-              Sébastien MICHEL
-            </p>
-
-            <p className="text-xs text-slate-400">
-              Maintenance • Réseaux • TPV
-            </p>
+            <DownloadCVButton />
           </div>
-        </Link>
 
-        {/* Navigation */}
-        <nav className="hidden items-center gap-8 lg:flex">
-          {links.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="relative text-sm font-medium text-slate-300 transition duration-300 hover:text-white"
+          {/* Menu Mobile */}
+
+          <button
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label="Menu"
+            className="rounded-lg p-2 text-white transition hover:bg-white/5 lg:hidden"
+          >
+            {mobileOpen ? (
+              <X
+                size={30}
+                strokeWidth={2.3}
+              />
+            ) : (
+              <Menu
+                size={30}
+                strokeWidth={2.3}
+              />
+            )}
+          </button>
+
+        </div>
+      </header>
+
+      {/* Menu Mobile */}
+
+      <div
+        className={`
+          fixed
+          left-0
+          top-24
+          z-40
+          w-full
+          overflow-hidden
+          bg-slate-950/95
+          backdrop-blur-xl
+          transition-all
+          duration-500
+          lg:hidden
+          ${
+            mobileOpen
+              ? "max-h-screen border-b border-slate-800 opacity-100"
+              : "max-h-0 opacity-0"
+          }
+        `}
+      >
+        <div className="space-y-6 px-6 py-8">
+
+          {navigation.map((item) => (
+            <div
+              key={item.href}
+              onClick={closeMobileMenu}
             >
-              {link.label}
-            </a>
+              <NavLink
+                href={item.href}
+                label={item.label}
+              />
+            </div>
           ))}
-        </nav>
 
-        {/* Bouton CV */}
-        <a
-          href="/cv/CV-Sebastien-Michel.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-2 rounded-full border border-blue-500/20 bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:scale-105 hover:bg-blue-500"
-        >
-          <Download size={17} />
-          Télécharger le CV
-        </a>
+          <div onClick={closeMobileMenu}>
+            <DownloadCVButton />
+          </div>
 
+        </div>
       </div>
-    </motion.header>
+    </>
   );
 }

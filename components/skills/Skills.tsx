@@ -2,30 +2,41 @@
 
 import { motion } from "framer-motion";
 
-import Container from "../ui/Container";
-import SectionTitle from "../ui/SectionTitle";
+import Container from "@/components/ui/Container";
+import Section from "@/components/ui/Section";
+import SectionTitle from "@/components/ui/SectionTitle";
 
-import SkillCategory from "./SkillCategory";
-import { skillCategories } from "./skillsData";
+import SkillsGrid from "./SkillsGrid";
 
 export default function Skills() {
   return (
-    <section
-      id="competences"
-      className="relative overflow-hidden py-32"
+    <Section
+      id="skills"
+      className="relative overflow-hidden"
     >
-      {/* Halo d'arrière-plan */}
-      <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute left-1/2 top-40 h-[650px] w-[650px] -translate-x-1/2 rounded-full bg-blue-500/10 blur-[170px]" />
-        <div className="absolute right-10 bottom-0 h-[300px] w-[300px] rounded-full bg-cyan-400/10 blur-[120px]" />
-      </div>
+      {/* Halo */}
+
+      <div
+        className="
+          absolute
+          left-1/2
+          top-0
+          -translate-x-1/2
+          h-[600px]
+          w-[600px]
+          rounded-full
+          bg-blue-600/10
+          blur-[180px]
+          -z-10
+        "
+      />
 
       <Container>
 
         <SectionTitle
-          overline="Expertise"
-          title="Compétences Techniques"
-          subtitle="Plus de 30 années d'expérience dans la maintenance informatique, les réseaux, les infrastructures, le support technique et les solutions professionnelles."
+          center
+          title="Compétences"
+          subtitle="Des compétences acquises au cours de plus de 30 années d'expérience dans les environnements informatiques professionnels."
         />
 
         <motion.div
@@ -37,39 +48,20 @@ export default function Skills() {
             opacity: 1,
             y: 0,
           }}
-          transition={{
-            duration: 0.7,
-          }}
           viewport={{
             once: true,
           }}
-          className="mt-20 grid gap-8 lg:grid-cols-3"
+          transition={{
+            duration: 0.7,
+            delay: 0.2,
+          }}
+          className="mt-20"
         >
-          {skillCategories.map((category, index) => (
-            <motion.div
-              key={category.title}
-              initial={{
-                opacity: 0,
-                y: 40,
-              }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
-              transition={{
-                duration: 0.6,
-                delay: index * 0.12,
-              }}
-              viewport={{
-                once: true,
-              }}
-            >
-              <SkillCategory {...category} />
-            </motion.div>
-          ))}
+          <SkillsGrid />
         </motion.div>
 
       </Container>
-    </section>
+
+    </Section>
   );
 }
