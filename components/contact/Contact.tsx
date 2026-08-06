@@ -26,9 +26,7 @@ export default function Contact() {
   });
 
   const [loading, setLoading] = useState(false);
-
   const [success, setSuccess] = useState(false);
-
   const [error, setError] = useState("");
 
   const handleChange = (
@@ -83,7 +81,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="relative overflow-hidden py-28"
+      className="relative overflow-hidden py-20 md:py-24 lg:py-28"
     >
       {/* Halo */}
 
@@ -97,7 +95,7 @@ export default function Contact() {
 
       </div>
 
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
 
         <Badge>Contact</Badge>
 
@@ -106,7 +104,7 @@ export default function Contact() {
           subtitle="Disponible pour un poste, une mission ou un accompagnement informatique."
         />
 
-        <div className="mt-20 grid gap-10 lg:grid-cols-2">
+        <div className="mt-14 grid gap-8 md:mt-20 lg:grid-cols-2 lg:gap-10">
 
           {/* Coordonnées */}
 
@@ -116,13 +114,14 @@ export default function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <GlassCard className="h-full p-10">
 
-              <h3 className="text-3xl font-bold text-white">
+            <GlassCard className="h-full p-6 md:p-8 lg:p-10">
+
+              <h3 className="text-2xl font-bold text-white md:text-3xl">
                 Restons en contact
               </h3>
 
-              <p className="mt-6 leading-8 text-slate-300">
+              <p className="mt-5 text-base leading-7 text-slate-300 md:text-lg md:leading-8">
                 Vous recherchez un technicien expérimenté,
                 autonome et orienté satisfaction client ?
                 Je serai ravi d&apos;échanger avec vous afin
@@ -134,9 +133,9 @@ export default function Contact() {
 
                 {/* Email */}
 
-                <div className="flex items-start gap-5">
+                <div className="flex items-start gap-4 md:gap-5">
 
-                  <div className="rounded-xl bg-cyan-500/10 p-3">
+                  <div className="flex-shrink-0 rounded-xl bg-cyan-500/10 p-2.5 md:p-3">
                     <Mail className="text-cyan-400" />
                   </div>
 
@@ -148,7 +147,7 @@ export default function Contact() {
 
                     <a
                       href="mailto:seb.sauv@gmail.com"
-                      className="mt-1 inline-block text-cyan-400 transition hover:text-cyan-300"
+                      className="mt-1 inline-block break-all text-sm text-cyan-400 transition hover:text-cyan-300 md:text-base"
                     >
                       Me contacter par e-mail
                     </a>
@@ -172,12 +171,14 @@ export default function Contact() {
               </div>
 
               <a
-                href="/cv/Sebastien_MICHEL_CV.pdf"
+                href="/cv/CV-Sebastien-Michel.pdf"
                 download
                 className="
-                  mt-12
-                  inline-flex
+                  mt-10
+                  flex
+                  w-full
                   items-center
+                  justify-center
                   gap-3
                   rounded-full
                   border
@@ -191,6 +192,7 @@ export default function Contact() {
                   duration-300
                   hover:bg-cyan-500
                   hover:text-white
+                  sm:w-auto
                 "
               >
                 <Download size={18} />
@@ -211,19 +213,19 @@ export default function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <GlassCard className="p-10">
+
+            <GlassCard className="p-6 md:p-8 lg:p-10">
 
               <form
                 onSubmit={handleSubmit}
                 className="space-y-6"
-              >
-                                <input
+              >                <input
                   type="text"
                   name="from_name"
                   value={form.from_name}
                   onChange={handleChange}
                   placeholder="Nom"
-                  className="w-full rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-white outline-none transition focus:border-cyan-500"
+                  className="w-full rounded-2xl border border-white/10 bg-white/5 px-5 py-3.5 text-white outline-none transition focus:border-cyan-500 md:py-4"
                 />
 
                 <input
@@ -232,7 +234,7 @@ export default function Contact() {
                   value={form.reply_to}
                   onChange={handleChange}
                   placeholder="Adresse e-mail"
-                  className="w-full rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-white outline-none transition focus:border-cyan-500"
+                  className="w-full rounded-2xl border border-white/10 bg-white/5 px-5 py-3.5 text-white outline-none transition focus:border-cyan-500 md:py-4"
                 />
 
                 <input
@@ -241,12 +243,12 @@ export default function Contact() {
                   value={form.subject}
                   onChange={handleChange}
                   placeholder="Sujet"
-                  className="w-full rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-white outline-none transition focus:border-cyan-500"
+                  className="w-full rounded-2xl border border-white/10 bg-white/5 px-5 py-3.5 text-white outline-none transition focus:border-cyan-500 md:py-4"
                 />
 
                 <textarea
                   name="message"
-                  rows={6}
+                  rows={5}
                   value={form.message}
                   onChange={handleChange}
                   placeholder="Votre message..."
@@ -278,8 +280,8 @@ export default function Contact() {
                     bg-gradient-to-r
                     from-blue-600
                     to-cyan-500
-                    px-8
-                    py-4
+                    px-6
+                    py-3.5
                     font-semibold
                     shadow-[0_15px_40px_rgba(37,99,235,.35)]
                     transition-all
@@ -287,6 +289,8 @@ export default function Contact() {
                     hover:scale-[1.02]
                     disabled:cursor-not-allowed
                     disabled:opacity-70
+                    md:px-8
+                    md:py-4
                   "
                 >
                   {loading ? (
@@ -331,19 +335,19 @@ function ContactItem({
   value: string;
 }) {
   return (
-    <div className="flex items-start gap-5">
+    <div className="flex items-start gap-4 md:gap-5">
 
-      <div className="rounded-xl bg-cyan-500/10 p-3">
+      <div className="flex-shrink-0 rounded-xl bg-cyan-500/10 p-2.5 md:p-3">
         {icon}
       </div>
 
-      <div>
+      <div className="min-w-0">
 
         <h4 className="font-semibold text-white">
           {title}
         </h4>
 
-        <p className="mt-1 text-slate-400">
+        <p className="mt-1 break-words text-sm text-slate-400 md:text-base">
           {value}
         </p>
 

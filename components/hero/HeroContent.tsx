@@ -9,19 +9,36 @@ import HeroButtons from "./HeroButtons";
 export default function HeroContent() {
   return (
     <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.8 }}
-      className="max-w-3xl"
+      initial={{ opacity: 0, y: 15 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.7 }}
+      className="mx-auto max-w-none text-center lg:mx-0 lg:text-left"
     >
       {/* Badge */}
 
       <motion.div
-        initial={{ opacity: 0, y: -20 }}
+        initial={{ opacity: 0, y: -15 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <span className="inline-flex items-center rounded-full border border-blue-500/20 bg-blue-500/10 px-5 py-2 text-sm font-semibold tracking-wide text-blue-300">
+        <span
+          className="
+            inline-flex
+            items-center
+            rounded-full
+            border
+            border-cyan-500/20
+            bg-cyan-500/10
+            px-4
+            py-2
+            text-xs
+            font-semibold
+            tracking-wide
+            text-cyan-300
+            sm:px-5
+            sm:text-sm
+          "
+        >
           👋 Bienvenue sur mon portfolio
         </span>
       </motion.div>
@@ -29,51 +46,54 @@ export default function HeroContent() {
       {/* Introduction */}
 
       <motion.p
-        initial={{ opacity: 0, x: -20 }}
+        initial={{ opacity: 0, x: -15 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 0.15 }}
-        className="mt-8 text-lg font-medium text-slate-300"
+        className="mt-8 text-base font-medium text-slate-300 sm:text-lg"
       >
-        Bonjour, je suis
+        
       </motion.p>
 
       {/* Nom */}
 
-      <motion.h1
-        initial={{ opacity: 0, y: 25 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.25 }}
-        className="
-          mt-3
-          text-5xl
-          font-black
-          tracking-tight
-          text-white
-          sm:text-6xl
-          lg:text-7xl
-        "
-      >
-        Sébastien
-        <br />
+<motion.h1
+  initial={{ opacity: 0, y: 25 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ delay: 0.25 }}
+  className="
+    mt-3
+    flex
+    items-baseline
+    gap-4
+    whitespace-nowrap
+    font-black
+    tracking-tight
+    leading-none
+    text-[clamp(3.2rem,6vw,5.8rem)]
+  "
+>
+  <span className="text-white">
+    Sébastien
+  </span>
 
-        <span className="bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-500 bg-clip-text text-transparent">
-          MICHEL
-        </span>
-      </motion.h1>
+  <span className="bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-500 bg-clip-text text-transparent">
+    MICHEL
+  </span>
+</motion.h1>
 
       {/* Métier */}
 
       <motion.div
-        initial={{ opacity: 0, y: 25 }}
+        initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.35 }}
-        className="mt-8 space-y-2"
+        className="mt-8 space-y-3"
       >
-        <h2 className="text-2xl font-bold text-white sm:text-3xl">
+        <h2 className="text-xl font-bold text-white sm:text-2xl lg:text-3xl">
           Technicien Maintenance Informatique
         </h2>
 
-        <h3 className="text-xl font-semibold text-cyan-400 sm:text-2xl">
+        <h3 className="text-lg font-semibold text-cyan-400 sm:text-xl lg:text-2xl">
           Administrateur Systèmes &amp; Réseaux
         </h3>
       </motion.div>
@@ -85,41 +105,50 @@ export default function HeroContent() {
         animate={{ opacity: 1 }}
         transition={{ delay: 0.45 }}
         className="
+          mx-auto
           mt-8
           max-w-2xl
-          text-lg
-          leading-9
+          text-base
+          leading-8
           text-slate-400
+          sm:text-lg
+          lg:mx-0
+          lg:leading-9
         "
       >
         Depuis plus de{" "}
         <span className="font-semibold text-white">
           30 ans
         </span>
-        , j&apos;accompagne les entreprises dans la maintenance informatique,
-        l&apos;administration des systèmes Windows, les infrastructures réseaux
-        et les solutions professionnelles d&apos;encaissement (TPV).
-        Mon objectif est d&apos;apporter des solutions fiables, un support
+        , j'accompagne les entreprises dans la maintenance informatique,
+        l'administration des systèmes Microsoft Windows, les infrastructures
+        réseaux et les solutions professionnelles d'encaissement (TPV).
+
+        <br />
+        <br />
+
+        Mon objectif est d'apporter des solutions fiables, un support
         réactif et un accompagnement de proximité.
       </motion.p>
 
       {/* Statistiques */}
 
-      <div className="mt-12">
+      <div className="mt-10">
         <HeroStats />
       </div>
 
       {/* Expertises */}
 
-      <div className="mt-12">
+      <div className="mt-10">
         <HeroBadges />
       </div>
 
       {/* Boutons */}
 
-      <div className="mt-12">
+      <div className="mt-10">
         <HeroButtons />
       </div>
+
     </motion.div>
   );
 }
