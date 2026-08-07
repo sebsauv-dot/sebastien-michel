@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   Download,
-  Github,
   Linkedin,
   Mail,
   MapPin,
@@ -14,24 +13,23 @@ import {
 export default function Footer() {
   const year = new Date().getFullYear();
 
-  const iconClass =
-    `
-      flex
-      h-14
-      w-14
-      items-center
-      justify-center
-      rounded-full
-      border
-      border-slate-700
-      text-cyan-400
-      transition-all
-      duration-300
-      hover:scale-110
-      hover:border-cyan-400
-      hover:bg-cyan-500/10
-      hover:shadow-[0_0_25px_rgba(34,211,238,.35)]
-    `;
+  const iconClass = `
+    flex
+    h-14
+    w-14
+    items-center
+    justify-center
+    rounded-full
+    border
+    border-slate-700
+    text-cyan-400
+    transition-all
+    duration-300
+    hover:scale-110
+    hover:border-cyan-400
+    hover:bg-cyan-500/10
+    hover:shadow-[0_0_25px_rgba(34,211,238,.35)]
+  `;
 
   return (
     <footer className="relative overflow-hidden border-t border-slate-800 bg-slate-950">
@@ -39,20 +37,18 @@ export default function Footer() {
       {/* Halo */}
 
       <div className="pointer-events-none absolute inset-0">
-
         <div className="absolute left-1/2 top-0 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-cyan-500/10 blur-[180px]" />
-
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-6 py-20">
+      <div className="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
 
-        <div className="grid gap-14 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3">
 
           {/* Présentation */}
 
           <div>
 
-            <div className="flex items-center gap-5">
+            <div className="flex flex-col items-center gap-5 text-center sm:flex-row sm:items-center sm:text-left">
 
               <Image
                 src="/images/logo-sm.png"
@@ -69,19 +65,21 @@ export default function Footer() {
                 </h3>
 
                 <p className="text-cyan-400">
-                  Maintenance informatique • Réseaux • Solutions d&apos;Encaissement
+                  Maintenance informatique • Réseaux • Solutions TPV
                 </p>
 
               </div>
 
             </div>
 
-            <p className="mt-8 leading-8 text-slate-400">
+            <p className="mt-8 text-center leading-8 text-slate-400 sm:text-left">
 
-              Plus de 30 ans d&apos;expérience dans la maintenance informatique,
-              l&apos;administration des systèmes Microsoft, les infrastructures
-              réseaux, Microsoft 365 et les solutions professionnelles
-              d&apos;encaissement.
+              Plus de 30 ans d'expérience dans la maintenance informatique,
+              l'administration des systèmes Microsoft,
+              les infrastructures réseaux,
+              Microsoft 365
+              et les solutions professionnelles
+              d'encaissement.
 
             </p>
 
@@ -90,6 +88,7 @@ export default function Footer() {
               download
               className="
                 mt-8
+                mx-auto
                 inline-flex
                 items-center
                 gap-3
@@ -105,6 +104,7 @@ export default function Footer() {
                 duration-300
                 hover:bg-cyan-500
                 hover:text-white
+                sm:mx-0
               "
             >
               <Download size={18} />
@@ -158,8 +158,7 @@ export default function Footer() {
             </ul>
 
           </div>
-
-          {/* Contact */}
+                    {/* Contact */}
 
           <div>
 
@@ -210,8 +209,9 @@ export default function Footer() {
                 Retrouvez-moi également sur
               </p>
 
-              <div className="flex gap-5">
-                                <a
+              <div className="flex justify-center gap-6 sm:justify-start">
+
+                <a
                   href="https://www.linkedin.com/in/sebastienmichel423b22187/"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -219,16 +219,6 @@ export default function Footer() {
                   className={iconClass}
                 >
                   <Linkedin size={28} />
-                </a>
-
-                <a
-                  href="https://github.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="GitHub"
-                  className={iconClass}
-                >
-                  <Github size={28} />
                 </a>
 
                 <a
@@ -251,7 +241,7 @@ export default function Footer() {
 
         <div
           className="
-            mt-16
+            mt-12
             border-t
             border-slate-800
             pt-8

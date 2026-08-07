@@ -21,11 +21,12 @@ export default function Hero() {
             relative
             z-10
             grid
-            min-h-[650px]
+            min-h-[550px] sm:min-h-[650px]
             items-center
             gap-12
             md:gap-16
-            lg:min-h-[750px]
+            lg:min-h-[700px]
+            xl:min-h-[750px]
             lg:grid-cols-[1.45fr_0.95fr]
           "
         >

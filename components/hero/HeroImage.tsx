@@ -68,10 +68,12 @@ export default function HeroImage() {
         }}
         className="
           relative
-          w-[340px]
-          h-[340px]
-          sm:w-[430px]
-          sm:h-[430px]
+          w-[240px]
+          h-[240px]
+          sm:w-[320px]
+          sm:h-[320px]
+          md:w-[430px]
+          md:h-[430px]
           lg:w-[560px]
           lg:h-[560px]
         "
