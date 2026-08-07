@@ -74,12 +74,12 @@ export default function Footer() {
 
             <p className="mt-8 text-center leading-8 text-slate-400 sm:text-left">
 
-              Plus de 30 ans d'expérience dans la maintenance informatique,
-              l'administration des systèmes Microsoft,
+              Plus de 30 ans d&apos;expérience dans la maintenance informatique,
+              l&apos;administration des systèmes Microsoft,
               les infrastructures réseaux,
               Microsoft 365
               et les solutions professionnelles
-              d'encaissement.
+              d&apos;encaissement.
 
             </p>
 
