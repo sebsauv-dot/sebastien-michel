@@ -61,24 +61,29 @@ export default function HeroContent() {
   animate={{ opacity: 1, y: 0 }}
   transition={{ delay: 0.25 }}
   className="
-    mt-3
-    flex
-    items-baseline
-    gap-4
-    whitespace-nowrap
-    font-black
-    tracking-tight
-    leading-none
-    text-[clamp(3.2rem,6vw,5.8rem)]
-  "
+mt-3
+flex
+flex-col
+items-center
+gap-1
+text-center
+font-black
+leading-none
+tracking-tight
+text-[clamp(2.3rem,9vw,5.8rem)]
+sm:gap-2
+lg:flex-row
+lg:items-baseline
+lg:text-left
+"
 >
   <span className="text-white">
-    Sébastien
-  </span>
+  Sébastien
+</span>
 
-  <span className="bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-500 bg-clip-text text-transparent">
-    MICHEL
-  </span>
+<span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+  MICHEL
+</span>
 </motion.h1>
 
       {/* Métier */}
@@ -109,7 +114,8 @@ export default function HeroContent() {
   className="
     mx-auto
     mt-8
-    max-w-2xl
+    max-w-xl
+    sm:max-w-2xl
     text-base
     leading-8
     text-slate-400
