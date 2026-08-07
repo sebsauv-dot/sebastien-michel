@@ -39,7 +39,7 @@ const badges = [
 ];
 
 const PHOTO_SIZE = 400;
-const RADIUS = 220;
+const RADIUS = 200;
 
 export default function HeroImage() {
   return (
@@ -68,12 +68,12 @@ export default function HeroImage() {
         }}
         className="
           relative
-          w-[240px]
-          h-[240px]
-          sm:w-[320px]
-          sm:h-[320px]
-          md:w-[430px]
-          md:h-[430px]
+          w-[210px]
+          h-[210px]
+          sm:w-[280px]
+          sm:h-[280px]
+          md:w-[400px]
+          md:h-[400px]
           lg:w-[560px]
           lg:h-[560px]
         "
@@ -153,12 +153,13 @@ export default function HeroImage() {
 
         </div>
                 {/* ==============================
-             BADGES (Desktop uniquement)
+             BADGES DESKTOP
         ============================== */}
 
         <div className="hidden lg:block">
 
           {badges.map((badge, index) => {
+
             const angle =
               ((360 / badges.length) * index - 90) *
               (Math.PI / 180);
@@ -169,6 +170,7 @@ export default function HeroImage() {
             const Icon = badge.icon;
 
             return (
+
               <motion.div
                 key={badge.label}
                 initial={{
@@ -192,6 +194,7 @@ export default function HeroImage() {
                   marginTop: y,
                 }}
               >
+
                 <div
                   className="
                     flex
@@ -218,6 +221,7 @@ export default function HeroImage() {
                     hover:shadow-[0_0_30px_rgba(34,211,238,.35)]
                   "
                 >
+
                   <Icon
                     size={18}
                     className="text-cyan-300"
@@ -228,7 +232,9 @@ export default function HeroImage() {
                 </div>
 
               </motion.div>
+
             );
+
           })}
 
         </div>
@@ -248,6 +254,7 @@ export default function HeroImage() {
           }}
           className="absolute inset-0"
         >
+
           <motion.div
             animate={{
               scale: [1, 1.4, 1],
@@ -259,8 +266,10 @@ export default function HeroImage() {
             }}
             className="
               absolute
-              h-5
-              w-5
+              h-4
+              w-4
+              lg:h-5
+              lg:w-5
               rounded-full
               bg-cyan-400
               shadow-[0_0_30px_#22d3ee]
@@ -271,31 +280,38 @@ export default function HeroImage() {
               transform: "translateX(-50%)",
             }}
           />
+
         </motion.div>
                 {/* =====================================
-            BADGES VERSION MOBILE / TABLETTE
+            BADGES MOBILE / TABLETTE
         ====================================== */}
 
         <div
           className="
             absolute
-            -bottom-24
+            -bottom-14
             left-1/2
             flex
             w-full
-            max-w-md
+            max-w-xs
             -translate-x-1/2
             flex-wrap
             justify-center
-            gap-3
-            px-4
+            gap-2
+            px-2
+            sm:-bottom-20
+            sm:max-w-md
+            sm:gap-3
+            sm:px-4
             lg:hidden
           "
         >
           {badges.map((badge) => {
+
             const Icon = badge.icon;
 
             return (
+
               <motion.div
                 key={badge.label}
                 initial={{
@@ -315,32 +331,43 @@ export default function HeroImage() {
                 className="
                   flex
                   items-center
-                  gap-2
+                  gap-1.5
                   rounded-full
                   border
                   border-cyan-500/25
                   bg-slate-900/80
-                  px-4
-                  py-2
-                  text-xs
+                  px-3
+                  py-1.5
+                  text-[11px]
                   font-semibold
                   text-cyan-200
                   backdrop-blur-xl
                   shadow-lg
+                  sm:gap-2
+                  sm:px-4
+                  sm:py-2
+                  sm:text-xs
                 "
               >
+
                 <Icon
-                  size={15}
+                  size={13}
                   className="text-cyan-300"
                 />
 
                 <span>{badge.label}</span>
+
               </motion.div>
+
             );
+
           })}
+
         </div>
 
       </motion.div>
+
     </motion.div>
+
   );
 }

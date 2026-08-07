@@ -17,19 +17,21 @@ export default function Hero() {
 
       <Container>
         <div
-          className="
-            relative
-            z-10
-            grid
-            min-h-[550px] sm:min-h-[650px]
-            items-center
-            gap-12
-            md:gap-16
-            lg:min-h-[700px]
-            xl:min-h-[750px]
-            lg:grid-cols-[1.45fr_0.95fr]
-          "
-        >
+  className="
+    relative
+    z-10
+    grid
+    grid-cols-1
+    min-h-[550px]
+    sm:min-h-[650px]
+    items-center
+    gap-12
+    md:gap-16
+    lg:min-h-[700px]
+    xl:min-h-[750px]
+    lg:grid-cols-[1.45fr_0.95fr]
+  "
+>
           <HeroContent />
 
           <HeroImage />
